@@ -8,13 +8,12 @@ import operator
 import schedule
 import time
 import datetime
-
-localhost = '127.0.0.1'
-tencenthost = '140.143.197.154'
+import Constants
 
 
 @contextlib.contextmanager
-def mysql(host=localhost, port=3306, user='root', passwd='root', db='flowreader', charset='utf8'):
+def mysql(host=Constants.mysql_localhost, port=3306, user=Constants.mysql_user, passwd=Constants.mysql_passwd,
+          db=Constants.mysql_db_name, charset='utf8'):
     conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db, charset=charset)
     cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
     try:
